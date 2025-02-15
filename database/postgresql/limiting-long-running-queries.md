@@ -35,18 +35,49 @@ jdbc:postgresql://10.26.56.200:5432/mydatabase?statement_timeout=60000
 All queries within sessions started in this datasource will stop after 60 seconds of execution time. For example, the following long running query will automatically stop after 60 seconds with an error:
 
 ```sql
-select * from my_big_table;
+select * from my_big_table; -- my big, heavy, and/or complex query
 ```
 
 > ERROR: canceling statement due to statement timeout
 
-The datasource setting acts as a default for all running queries using the connection. If a specific query needs more time to run you can change the default using the `SET` clause.
+### Configuration Options
 
-The following settings will affect the connection settings temporarily or permanently.
+The `statement_timeout` parameter can be set at the following levels:
 
-| Command | Description |
-| -- | -- |
-| `set local statement_timeout = 60000` | Sets a 60-second query timeout within the current transaction. It resets to the default settings after commit/rollback. Remember to turn off auto-commit for this to work |
-| `set statement_timeout = 60000` | Sets a 60-second query timeout to the whole session |
-| `set statement_timeout = DEFAULT` | Resets the session timeout to the session's default value |
+1. At the PostgreSQL Instance Configuration
+
+    This is set as an installation parameter in the `postgresql.conf` file. This value becomes a default for all databases, all accounts, all sessions, and all transactions in it.
+
+2. At the Database Level
+
+    Use `alter database <database> set statement_timeout = 60000` to set the default timeout for one database.
+
+3. At the Account Level
+
+    Use `alter role <account> set statement_timeout = 60000` to set the default timeout for one account that connects to the database.
+
+4. At the Session Level
+
+    Use `set statement_timeout = 60000` SQL query to set timeout for the current session. This is equivalent
+    to set this parameter in the connection string, as in `jdbc:postgresql://10.26.56.200:5432/mydatabase?statement_timeout=60000`.
+
+5. At the Transaction Level
+
+    Use `set local statement_timeout = 60000` SQL query to set the timeout for the current transaction only. It
+resets to the default settings after commit/rollback. Remember to turn off auto-commit for this to
+work.
+
+**Note**: A more fine grained overrides the more general settings, that act as a default behavior.
+
+**Note**: Typically this parameter is not set at the installation or database level, but per account. Different accounts can differentiate between online queries that should have a relatively short timeout compared to batch jobs that could have a much higher timeout.
+
+
+
+
+
+
+
+
+
+
 
