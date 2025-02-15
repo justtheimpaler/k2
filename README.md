@@ -1,4 +1,4 @@
-## Knowledge Base
+## K2 Knowledge Base
 
 - [Database Design - Table Inheritance](database/design/table-inheritance.md)
 - [PostgreSQL - Limiting Long Running Queries](database/postgresql/limiting-long-running-queries.md)
