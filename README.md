@@ -6,5 +6,8 @@
 - [Docker - SpringBoot Example](docker/spring-boot-and-docker-example.md)
 - [Running SQL from Ant](database/ant/sql-from-ant.md)
 - [Maven - Using Local Libraries](maven/using-local-libraries.md)
+- [Maven - Generating and Updating the Build Info](maven/generating-and-updating-the-build-info.md)
+
+
 
 
