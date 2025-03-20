@@ -22,9 +22,9 @@ public class BuildInformation {
 
 **Note**: Replace `my/package` with the specific package you want this class to be in.
 
-**Note**: This generic source file should be stored in the SCM repository. Conversely, the generated source code (Java class with replaced values) will be compiled and included in the jar package, but won't be stored in the repository (since it will be placed inside the `target` directory).
+**Note**: This generic source file (this template) should be stored in the SCM repository. Conversely, the generated source code (Java class with replaced values) will be compiled and included in the jar package, and will be excluded from the repository (since it will be placed inside the `target` directory).
 
-## 2. Produce a Custom-formatted Build ID
+## 2. Produce a Custom-Formatted Build ID
 
 By default, the format of the timestamp is fully ISO format (and is provided as the property `maven.build.timestamp`). This may not suit your needs.
 
@@ -71,7 +71,7 @@ This will generate the new source file `BuildInformation.java`, will compile it,
 
 ## 5. Include the Newly Generated Class in Eclipse (optional)
 
-To allow Eclipse to see the generated/updated class (so you can easily import it in any class) you'll need to add the folder as a new source folder in Eclipse.
+To allow Eclipse to see the generated/updated class (so you can easily import it from any class) you'll need to add the folder as a new source folder in Eclipse.
 
 First, refresh the project in Eclipse. The new folder `target/generated-sources/java-templates/my/package` will show up. Find it in Eclipse and:
 
