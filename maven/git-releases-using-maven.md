@@ -101,7 +101,7 @@ This command will:
 - Then, it will switch versions and tag the repo. That is:
     - a) Will remove the `-SNAPSHOT` part of the version in the pom.xml file and will commit and push this change to the repository
     - b) Will create a Git tag with in the form of `application-version` (as in "myapp-4.3.15"). No SNAPSHOT here.
-    - c) Will increase the version number to the next snapshot version (as in "4.3.16-SNAPSHOT") and will commit this change to the git repository. The patch moved from 15 to 16 now.
+    - c) Will advance the version number to the next snapshot version (as in "4.3.16-SNAPSHOT") and will commit this change to the git repository. The patch moved from 15 to 16 now.
 
 That's it.
 
