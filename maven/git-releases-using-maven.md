@@ -10,10 +10,10 @@ This article covers the first task only. That is, only the Git changes.
 
 ## Versions: Release or Snapshot?
 
-First things first: what is a snapshot version and what is a release Version?
+First things first: what is a snapshot version and what is a release version?
 
 A *Release* version represents an official version of an application that is or is going to be
-published in a package or image registry for QA, for deployment to production, or other official usage.
+published in a package or image registry for QA purposes, for deployment to production, or any other official usage.
 According to the [Semantic Versioning Standard](https://semver.org/) an official release 
 version number could take the form:
 
@@ -21,11 +21,11 @@ version number could take the form:
 
 On the other hand a *Snapshot* version represents unfinished work that aims to become a version in the future.
 For example, if we are currently working on the code that we expect to become the release
-4.3.15 then the current *snapshot* version would be:
+4.3.15 then the current snapshot version would be:
 
     4.3.15-SNAPSHOT
 
-The standard indicates to always append "-SNAPSHOT" (all upper case) to the future not-yet-existent 
+The standard indicates to always append "-SNAPSHOT" (all upper case) to the future, not-yet-existent 
 release version. When a snapshot version is released (maybe every week, every night, or even every hour)
 it represents the latest unstable version of an app. It's meant to be rapidly available to members of
 the team, but it's not meant for official QA or demos.
@@ -35,7 +35,7 @@ the team, but it's not meant for official QA or demos.
 The Maven Release Plugin automatically performs Git Releases. That is, it automatically upgrades versions
 and tags the source code repository for us. All in one go in a controlled manner. To do this we'll need:
 
-1. Make sure git command line is installed with SSH keys to the git repo also installed
+1. Make sure git command line is installed and the SSH keys to the git repository in question are also installed
 2. Use a snapshot version in the `pom.xml` file
 3. Tell Maven where Git repository is
 4. Make sure all changes are committed to the Git repository
@@ -45,8 +45,8 @@ These items are explained below.
 ### 1. Git Can be Used from the Command Line
 
 You'll need to make sure the "git" command is installed, and that the SSH keys for the project(s) in question
-are also installed in the `<home>/.ssh` folder. Once that is ready you can test it by going to a folder 
-where a git project was cloned to and type:
+are also installed in the `<home>/.ssh` folder. Both subjects are vastly explained in many articles online.
+Once that is ready you can test it by going to a folder where a git project was cloned to and type:
 
 ```bash
 git pull
@@ -56,7 +56,7 @@ You should see something like `Already up to date` message or other message but 
 
 ### 2. Use a Snapshot Version
 
-Our pom.xml file will always use a snapshot version. For example, our pom.xml file will include:
+make sure our pom.xml file will always use a snapshot version. For example, our pom.xml file could look like:
 
 ```xml
 <project ...>
@@ -66,6 +66,8 @@ Our pom.xml file will always use a snapshot version. For example, our pom.xml fi
   <artifactId>myapp</artifactId>
   <version>4.3.15-SNAPSHOT</version>
 ```
+
+Use `4.3.15-SNAPSHOT`, not `4.3.15` here.
 
 ### 3. Tell Maven where Git Repository Is
 
@@ -78,7 +80,7 @@ Get the URL you used to clone the repository and add it to the pom.xml file, rig
   </scm>
 ```
 
-**Note**: This is the "developer" git URL that has write permissions to the repository, not a read-only URL.
+**Note**: This is the developer git URL that has write permissions to the repository, not a read-only git URL.
 
 ### 4. Commit all changes to git
 
@@ -86,7 +88,7 @@ Use the standard commit/push commands to make sure you have committed all change
 
 ## Versioning and Tagging in Git
 
-Perform a Git Release is as simple as running:
+Performing a Git Release is as simple as running:
 
 ```bash
 mvn release:perform
