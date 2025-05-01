@@ -56,7 +56,7 @@ You should see something like `Already up to date` message or other message but 
 
 ### 2. Use a Snapshot Version
 
-make sure our pom.xml file will always use a snapshot version. For example, our pom.xml file could look like:
+Make sure our pom.xml file will always use a snapshot version. For example, our pom.xml file could look like:
 
 ```xml
 <project ...>
@@ -67,7 +67,7 @@ make sure our pom.xml file will always use a snapshot version. For example, our 
   <version>4.3.15-SNAPSHOT</version>
 ```
 
-Use `4.3.15-SNAPSHOT`, not `4.3.15` here.
+Use the snapshot mark here, as in `4.3.15-SNAPSHOT`, not just `4.3.15` here.
 
 ### 3. Tell Maven where Git Repository Is
 
