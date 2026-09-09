@@ -1,6 +1,7 @@
 ## K2 Knowledge Base
 
 - [Database Design - Table Inheritance](database/design/table-inheritance.md)
+- [PostgreSQL - Setting up a PostgreSQL Database in a Container](database/postgresql/setting-up-a-postgresql-database-in-a-container.md)
 - [PostgreSQL - Limiting Long Running Queries](database/postgresql/limiting-long-running-queries.md)
 - [JMeter - SQL Load Test](jmeter/jmeter-sql-load-test.md)
 - [Docker - SpringBoot Example](docker/spring-boot-and-docker-example.md)
